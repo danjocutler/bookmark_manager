@@ -4,8 +4,8 @@ require 'rack-flash'
 require './lib/link'
 require './lib/tag'
 require './lib/user'
-require_relative 'data_mapper_setup'
 require_relative 'helpers/application'
+require_relative 'data_mapper_setup'
 
 set :views, Proc.new { File.join(root, "..", "app/views") }
 enable :sessions
@@ -33,11 +33,11 @@ end
 
 get '/users/new' do
   @user = User.new
+  erb :"users/new"
   # note the view is in views/users/new.erb
   # we need the quotes because otherwise
   # ruby would divide the symbol :users by the
   # variable new (which makes no sense)
-  erb :"users/new"
 end
 
 post '/users' do
@@ -48,7 +48,7 @@ post '/users' do
   	session[:user_id] = @user.id
   	redirect to('/')
   else
-    flash[:notice] = "Sorry, your passwords don't match"
+    flash.now[:errors] = @user.errors.full_messages
     erb :"users/new"
   end
 end	
