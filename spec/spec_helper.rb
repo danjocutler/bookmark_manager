@@ -20,7 +20,7 @@ require 'data_mapper'
 require 'database_cleaner'
 require 'capybara/rspec'
 require 'sinatra'
-require './server'
+require './app/server'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 RSpec.configure do |config|
