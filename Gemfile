@@ -6,6 +6,7 @@ source "https://rubygems.org"
 	gem 'dm-postgres-adapter'
 	gem 'bcrypt'
 	gem 'bcrypt-ruby'
+	gem 'rack-flash3'
 
 group :development, :test do
 	gem 'rspec'
