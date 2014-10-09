@@ -65,7 +65,7 @@ end
 feature 'User forgets password' do
 
   before(:each) do
-    User.create(:email => "test@test.com")
+    User.create(:email => "test@test.com", :password_token => 'gr8m8')
   end
 
   scenario 'whilst at sign in' do
@@ -75,10 +75,15 @@ feature 'User forgets password' do
   end
 
   scenario 'whilst submitting email' do
-    visit "/users/reset_password"
-    fill_in('email', :with => "test@test.com")
-    click_on "Reset password"
-    expect(page). to have_content "Thank you, test@test.com. We have sent you a reset code. Please check your email"
+    reset_password('test@test.com')
+    expect(page).to have_content "Thank you, test@test.com. We have sent you a reset code. Please check your email"
   end
+
+  scenario 'clicking reset link' do
+    visit "users/new_password?token=gr8m8"
+    expect(page).to have_content "Please choose a new password."
+  end
+
+
 end
 

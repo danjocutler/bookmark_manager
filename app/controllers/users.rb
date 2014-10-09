@@ -34,5 +34,8 @@ end
     erb :"users/reset_password"
   end
 
-  post '/users/reset_password/:token' do 
+  get '/users/new_password' do 
+    @token = params[:token]
+    user = User.first(:password_token => @token)
+    erb :"users/new_password"
   end
