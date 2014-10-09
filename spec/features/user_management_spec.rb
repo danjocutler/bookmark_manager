@@ -62,3 +62,23 @@ feature "User signs out" do
   end
 end
 
+feature 'User forgets password' do
+
+  before(:each) do
+    User.create(:email => "test@test.com")
+  end
+
+  scenario 'whilst at sign in' do
+    visit '/sessions/new'
+    click_on "click here"
+    expect(current_path).to eq "/users/reset_password"
+  end
+
+  scenario 'whilst submitting email' do
+    visit "/users/reset_password"
+    fill_in('email', :with => "test@test.com")
+    click_on "Reset password"
+    expect(page). to have_content "Thank you, test@test.com. We have sent you a reset code. Please check your email"
+  end
+end
+
