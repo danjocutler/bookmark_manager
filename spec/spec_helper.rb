@@ -26,6 +26,7 @@ require './app/server'
 RSpec.configure do |config|
 
 Capybara.app = Sinatra::Application.new
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
