@@ -112,3 +112,4 @@ Capybara.app = Sinatra::Application.new
   Kernel.srand config.seed
 =end
 end
+

@@ -15,8 +15,8 @@ class User
     # 50 characters by default 
     # and it's not enough for the hash and salt
 
-    property :password_token, String
-    property :password_token_timestamp, String
+  property :password_token, Text
+  property :password_token_timestamp, String
 
 	validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
 	# this is datamapper's method of validating the model.
