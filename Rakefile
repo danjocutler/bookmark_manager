@@ -1,5 +1,8 @@
 require 'data_mapper'
 require './app/data_mapper_setup'
+require_relative 'app/models/link'
+require_relative 'app/models/tag'
+require_relative 'app/models/user'
 
 task :auto_upgrade do
 	DataMapper.auto_upgrade!
