@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/danjocutler/bookmark_manager/badges/gpa.svg)](https://codeclimate.com/github/danjocutler/bookmark_manager)
+
 This week's project is a bookmark manager. The goal is to expose you to the following aspects of web development, in addition to what we've studied before:
 
 Integration testing: Capybara (Monday)
